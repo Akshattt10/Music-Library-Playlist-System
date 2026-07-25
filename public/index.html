@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Crate — Music Library &amp; Playlist System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-head">
+    <div class="brand">
+      <span class="brand-mark">◐</span>
+      <div>
+        <h1>Crate</h1>
+        <p>Music Library &amp; Playlist System — CSEG2141 Assignment 3</p>
+      </div>
+    </div>
+    <div class="user-bar">
+      <label for="userSelect">Listening as</label>
+      <select id="userSelect"></select>
+    </div>
+  </header>
+
+  <main>
+    <!-- LIBRARY -->
+    <section class="panel" id="library-panel">
+      <div class="panel-head">
+        <h2><span class="idx">A</span> Library</h2>
+        <input id="songSearch" type="search" placeholder="Search title, artist, album…" />
+      </div>
+
+      <form id="songForm" class="row-form">
+        <input name="title" placeholder="Title" required />
+        <input name="artist" placeholder="Artist" required />
+        <input name="album" placeholder="Album" />
+        <input name="genre" placeholder="Genre" />
+        <input name="duration_seconds" placeholder="Length (sec)" type="number" min="1" required />
+        <button type="submit" class="btn-primary">Add track</button>
+      </form>
+      <p class="form-error" id="songFormError"></p>
+
+      <div class="table-wrap">
+        <table id="songsTable">
+          <thead>
+            <tr><th>Title</th><th>Artist</th><th>Album</th><th>Genre</th><th>Length</th><th></th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- PLAYLISTS -->
+    <section class="panel" id="playlists-panel">
+      <div class="panel-head">
+        <h2><span class="idx">B</span> Playlists</h2>
+      </div>
+
+      <form id="playlistForm" class="row-form">
+        <input name="name" placeholder="Playlist name" required />
+        <input name="description" placeholder="Description (optional)" />
+        <button type="submit" class="btn-primary">Create playlist</button>
+      </form>
+      <p class="form-error" id="playlistFormError"></p>
+
+      <div class="playlist-grid" id="playlistGrid"></div>
+    </section>
+
+    <!-- PLAYLIST DETAIL / WORKFLOW -->
+    <section class="panel" id="detail-panel" hidden>
+      <div class="panel-head">
+        <h2><span class="idx">C</span> <span id="detailName">Playlist</span></h2>
+        <button id="closeDetail" class="btn-ghost">Close</button>
+      </div>
+
+      <form id="editPlaylistForm" class="row-form">
+        <input name="name" placeholder="Playlist name" required />
+        <input name="description" placeholder="Description" />
+        <button type="submit" class="btn-secondary">Save changes</button>
+        <button type="button" id="deletePlaylistBtn" class="btn-danger">Delete playlist</button>
+      </form>
+
+      <div class="detail-columns">
+        <div>
+          <h3>In this playlist</h3>
+          <ol id="playlistSongsList" class="track-list"></ol>
+        </div>
+        <div>
+          <h3>Add from library</h3>
+          <select id="addSongSelect"></select>
+          <button id="addSongBtn" class="btn-primary">Add to playlist</button>
+          <p class="form-error" id="addSongError"></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Vinyl-catalog styling · SQLite-backed · Built for Assignment 3</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
