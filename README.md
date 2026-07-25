@@ -1,4 +1,4 @@
-# Crate — Music Library & Playlist System
+# Create — Music Library & Playlist System
 
 **CSEG2141 — Web Technologies Lab, Assignment 3**
 **Student:** Akshat Mehta (SAP ID 500110479, BTech_CS_CCVT)
